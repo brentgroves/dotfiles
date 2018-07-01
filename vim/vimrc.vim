@@ -96,7 +96,12 @@
 			\ endif
 	augroup END
 
-" Future stuff
-	"Swap line
-	"Insert blank below and above
+	"Specify a directory for plugins
+	" - For Neovim: ~/.local/share/nvim/plugged
+	" - Avoid using standard Vim directory names like 'plugin'
+	call plug#begin('~/.vim/plugged')
+ 		Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+ 		Plug 'junegunn/fzf.vim'
+ 	call plug#end()
+
 

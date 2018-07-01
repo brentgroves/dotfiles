@@ -1,7 +1,8 @@
 # .bashrc
 unset TMUX
-exec zsh
 export PATH=$PATH:$HOME/.local/bin:$HOME/bin
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+exec zsh
 
 # load nvm
 export NVM_DIR="/home/ec2-user/.nvm"
@@ -48,6 +49,7 @@ if [ "$PS1" != "" ]; then
 
     PS1='\[\033[01;32m\]$(_cloud9_prompt_user)\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)" 2>/dev/null) $ '
 fi
+
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

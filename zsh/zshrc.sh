@@ -14,6 +14,7 @@
 # Settings
 	export VISUAL=vim
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh 
 source ~/dotfiles/zsh/plugins/fixls.zsh
 
 #Functions
