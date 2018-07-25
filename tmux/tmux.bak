@@ -1,20 +1,17 @@
-# this is slow! move clipboard to tmux. The mouse menu option is faster.
-unbind C-p
-bind C-p paste-buffer
-# move x clipboard into tmux paste buffer
-unbind p
-bind p run "xsel -o | tmux load-buffer - ; tmux paste-buffer"
-
+set -g default-terminal "screen-256color"
 set -g default-command zsh
+source-file ~/dotfiles/tmux/tmux-keybindings.conf
+
+# 
+bind -t vi-copy y copy-pipe "xclip -sel clip -i"
+
 
 # don't rename windows automatically
 set-option -g allow-rename off
 
-
 # Enable mouse mode (tmux 2.1 and above)
 # comment out mouse on in cloud9 environments
-set -g mouse on
-
+#set -g mouse on
 
 # http://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/
 ######################
@@ -89,8 +86,8 @@ set -g status-bg colour234
 set -g status-fg colour137
 set -g status-attr dim
 set -g status-left ''
-set -g status-right 'Online: #{online_status} | #{cpu_bg_color} CPU: #{cpu_icon} #{cpu_percentage} | #{prefix_highlight} | #[fg=colour233,bg=colour245,bold] %A %-I:%M #[fg=colour255,bg=colour000] #(whoami)@#H'
-set -g status-right-length 80
+set -g status-right '#[fg=colour233,bg=colour245,bold] %A %-I:%M #[fg=colour255,bg=colour000] #(whoami)@#H'
+set -g status-right-length 50
 set -g status-left-length 20
 
 setw -g window-status-current-fg colour81
@@ -115,35 +112,3 @@ set -g message-fg colour232
 set -g message-bg colour166
 
 # }
-
-#smart pane switching with awareness of Vim splits.
-# See: https://github.com/christoomey/vim-tmux-navigator
-# List of plugins
-set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-sensible'
-set -g @plugin 'christoomey/vim-tmux-navigator'
-set -g @plugin 'tmux-plugins/tmux-sessionist'
-set -g @plugin 'tmux-plugins/tmux-pain-control'
-set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
-set -g @plugin 'tmux-plugins/tmux-cpu'
-set -g @plugin 'tmux-plugins/tmux-online-status'
-# resurrect 
-set -g @resurrect-capture-pane-contents 'on'
-set -g @resurrect-processes 'ssh'
-set -g @resurrect-strategy-vim 'session'
-set -g @plugin 'tmux-plugins/tmux-resurrect'
-# continuum
-set -g @continuum-restore 'on'
-set -g @plugin 'tmux-plugins/tmux-continuum'
-# Copies selection into clipboard
-set -g @plugin 'tmux-plugins/tmux-yank'
-# Search for content in pane
-set -g @plugin 'tmux-plugins/tmux-copycat'
-# Other examples:
-# set -g @plugin 'github_username/plugin_name'
-# set -g @plugin 'git@github.com/user/plugin'
-# set -g @plugin 'git@bitbucket.com/user/plugin'
-
-# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-run '~/.tmux/plugins/tpm/tpm'
-
