@@ -63,13 +63,20 @@
 	" C
 		inoremap <leader>out <esc>Iprintf(<esc>A);<esc>2hi
 		vnoremap <leader>out yOprintf(, <esc>pA);<esc>h%a
-
 	" Typescript
 		autocmd BufNewFile,BufRead *.ts set syntax=javascript
 		autocmd BufNewFile,BufRead *.tsx set syntax=javascript
 
 	" Markup
 		inoremap <leader>< <esc>I<<esc>A><esc>yypa/<esc>O<tab>
+
+	" javascript
+		autocmd FileType javascript set formatprg=prettier\ --stdin
+		" If you want to format on save:
+		" Let ALE handle this
+		" autocmd BufWritePre *.js :normal gggqG
+		" If you want to restore cursor position on save (can be buggy): 
+		" autocmd BufWritePre *.js exe "normal! gggqG\<C-o>\<C-o>"
 
 
 " File and Window Management 
@@ -147,22 +154,21 @@ filetype plugin indent on    " required
 	call plug#begin('~/.vim/plugged')
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	Plug 'junegunn/fzf.vim'
-
-	" post install (yarn install | npm install) then load plugin only for editing
-	" supported files
-	Plug 'prettier/vim-prettier', {
-	   \ 'do': 'yarn install',
-	     \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json','graphql', 'markdown', 'vue'] }
-
 	Plug 'chrisbra/NrrwRgn'
 	Plug 'https://github.com/wesQ3/vim-windowswap'
 	Plug 'w0rp/ale'
 	Plug 'itchyny/lightline.vim'
-
-	" Plug 'vim-airline/vim-airline'
-	" Plug 'vim-airline/vim-airline-themes'
  	call plug#end()
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
 
+let g:ale_fixers = {
+\   'javascript': ['prettier','eslint'],
+\}
+
+" Set this variable to 1 to fix files when you save them.
+let g:ale_fix_on_save = 1
 
 set laststatus=2
 let g:lightline = {

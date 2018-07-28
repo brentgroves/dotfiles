@@ -4,7 +4,7 @@ setopt AUTO_CD
 #multiline_prompt='true'
 #show_if_system='false'
 
-source ~/.zsh/preload.zsh # To be loaded before all else
+source ~/dotfiles/zsh/preload.zsh # To be loaded before all else
   
 # Add Antigen
 source ~/dotfiles/zsh/antigen.zsh
