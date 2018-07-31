@@ -23,8 +23,9 @@ antigen bundles <<EOBUNDLES
 EOBUNDLES
 
 # Load the theme
-# antigen theme robbyrussell
-antigen theme agnoster
+antigen theme robbyrussell
+
+#antigen theme agnoster
 
 # Tell antigen that you're done
 antigen apply

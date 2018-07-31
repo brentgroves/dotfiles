@@ -7,7 +7,8 @@ setopt AUTO_CD
 source ~/dotfiles/zsh/preload.zsh # To be loaded before all else
   
 # Add Antigen
-source ~/dotfiles/zsh/antigen.zsh
+#debian requires its own version so set in ~/.zshrc file ANTIGEN_PATH=/usr/share/zsh-antigen
+source $ANTIGEN_PATH/antigen.zsh
 antigen init ~/dotfiles/zsh/.antigenrc
 
 # Source all the configs https://github.com/HeroCC/dotfiles/tree/master/zsh
