@@ -6,7 +6,7 @@ antigen bundles <<EOBUNDLES
     z
     command-not-found
     colored-man-pages
-    extract	
+    extract
 
     # Syntax highlighting bundle.
     zsh-users/zsh-syntax-highlighting
@@ -23,11 +23,9 @@ antigen bundles <<EOBUNDLES
 EOBUNDLES
 
 # Load the theme
-antigen theme robbyrussell
+#antigen theme robbyrussell
 
-#antigen theme agnoster
+antigen theme agnoster
 
 # Tell antigen that you're done
 antigen apply
-
-
