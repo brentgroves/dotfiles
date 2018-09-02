@@ -12,7 +12,7 @@ time_out () { perl -e 'alarm shift; exec @ARGV' "$@"; }
 #fi
 
 
-[[ -o login ]] && [ -z $TMUX ] && exec tmux 
+#[[ -o login ]] && [ -z $TMUX ] && exec tmux 
 
 
 echo "Updating configuration"
