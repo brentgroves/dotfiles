@@ -22,5 +22,21 @@ fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# Add Antigen
+#debian requires its own version so set in ~/.zshrc file ANTIGEN_PATH=/usr/share/zsh-antigen
+# export ANTIGEN_PATH='/usr/share/zsh/share'
+export ANTIGEN_PATH='/usr/share/zsh-antigen'
+source $ANTIGEN_PATH/antigen.zsh
+antigen init ~/dotfiles/zsh/.antigenrc
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
