@@ -19,6 +19,34 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+
+" dein plugins
+if &compatible
+  set nocompatible
+endif
+" Add the dein installation directory into runtimepath
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
+
+  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+  call dein#add('idanarye/vim-vebugger')
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
+
+  call dein#end()
+  call dein#save_state()
+endif
+
+filetype plugin indent on
+syntax enable
+
+
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
  "call vundle#begin('~/some/path/here')
@@ -29,6 +57,7 @@ call vundle#begin()
  Plugin 'tpope/vim-obsession'
  Plugin 'christoomey/vim-tmux-navigator'
  Plugin 'christoomey/vim-system-copy'
+
  "all of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -58,6 +87,7 @@ filetype plugin indent on    " required
 	"Specify a directory for plugins
 	" - For Neovim: ~/.local/share/nvim/plugged
 	" - Avoid using standard Vim directory names like 'plugin'
+set omnifunc=syntaxcomplete#Complete
 	call plug#begin('~/.vim/plugged')
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	Plug 'junegunn/fzf.vim'
@@ -65,6 +95,11 @@ filetype plugin indent on    " required
 	Plug 'https://github.com/wesQ3/vim-windowswap'
 	Plug 'w0rp/ale'
 	Plug 'itchyny/lightline.vim'
+	" post install (yarn install | npm install)
+	Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+	Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+
+
  	call plug#end()
 let g:ale_linters = {
 \   'javascript': ['eslint'],
