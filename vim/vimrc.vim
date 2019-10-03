@@ -139,6 +139,7 @@ endif
 filetype plugin indent on
 syntax enable
 
+
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
  "call vundle#begin('~/some/path/here')
@@ -179,6 +180,7 @@ filetype plugin indent on    " required
 	"Specify a directory for plugins
 	" - For Neovim: ~/.local/share/nvim/plugged
 	" - Avoid using standard Vim directory names like 'plugin'
+set omnifunc=syntaxcomplete#Complete
 	call plug#begin('~/.vim/plugged')
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	Plug 'junegunn/fzf.vim'
@@ -186,6 +188,10 @@ filetype plugin indent on    " required
 	Plug 'https://github.com/wesQ3/vim-windowswap'
 	Plug 'w0rp/ale'
 	Plug 'itchyny/lightline.vim'
+	" post install (yarn install | npm install)
+	Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+	Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+
 
  	call plug#end()
 let g:ale_linters = {
