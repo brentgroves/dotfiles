@@ -1,37 +1,50 @@
-" https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/
-" https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/
-" http://learnvimscriptthehardway.stevelosh.com/chapters/04.html
-" https://vi.stackexchange.com/questions/7722/how-to-debug-a-mapping
-" https://thoughtbot.com/blog/my-life-with-neovim
+" https://sweetcode.io/configuring-eslint-nodejs-project/
+" git clone https://github.com/w0rp/ale.git ~/.local/share/nvim/site/pack/git-plugins/start/ale
 call plug#begin('~/.local/share/nvim/plugged')
-	Plug 'davidhalter/jedi-vim'
+" http://vimdoc.sourceforge.net/htmldoc/version7.html#new-omni-completion
+	" https://github.com/dense-analysis/ale#installation-with-vim-plug
+	Plug 'dense-analysis/ale'
 	if has('nvim')
+	  " https://github.com/Shougo/deoplete.nvim/wiki/Completion-Sources
 	  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	else
 	  Plug 'Shougo/deoplete.nvim'
 	  Plug 'roxma/nvim-yarp'
 	  Plug 'roxma/vim-hug-neovim-rpc'
 	endif
-	Plug 'zchee/deoplete-jedi'
-	Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
- 	Plug 'carlitux/deoplete-ternjs'
+	" https://atom.io/packages/atom-ternjs example configuration file.
+	Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+	" https://github.com/powerline/fonts
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
+	Plug 'edkolev/tmuxline.vim'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'scrooloose/nerdcommenter' "redefine the key map
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	Plug 'junegunn/fzf.vim'
-	Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+	Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 	Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
+
+" Auto pairs settings
+let g:AutoPairsFlyMode = 0
+let g:AutoPairsShortcutBackInsert = '<M-b>'
 
 " vim commentary
 autocmd FileType apache setlocal commentstring=#\ %s
 
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+
+" ALE settings
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
+
 "----------------------------------------------------------
 " Neovim's Python provider
 "----------------------------------------------------------
-let g:python_host_prog  = '/home/brent/.pyenv/shims/python'
 let g:python3_host_prog = '/home/brent/.pyenv/shims/python'
 
 "Deoplete settings
@@ -45,11 +58,75 @@ let g:deoplete#max_abbr_width = 0
 let g:deoplete#max_menu_width = 0
 let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
 let g:tern_request_timeout = 1
-let g:tern_request_timeout = 6000
 let g:tern#command = ["tern"]
 let g:tern#arguments = [" — persistent"]
+" Set bin if you have many instalations
+" let g:deoplete#sources#ternjs#tern_bin = '/path/to/tern_bin'
+let g:deoplete#sources#ternjs#timeout = 1
+
+
+" Whether to include the types of the completions in the result data. Default: 0
+let g:deoplete#sources#ternjs#types = 1
+
+" Whether to include the distance (in scopes for variables, in prototypes for 
+" properties) between the completions and the origin position in the result 
+" data. Default: 0
+" let g:deoplete#sources#ternjs#depths = 1
+
+" Whether to include documentation strings (if found) in the result data.
+" Default: 0
+" let g:deoplete#sources#ternjs#docs = 1
+
+" When on, only completions that match the current word at the given point will
+" be returned. Turn this off to get all results, so that you can filter on the 
+" client side. Default: 1
+" let g:deoplete#sources#ternjs#filter = 0
+
+" Whether to use a case-insensitive compare between the current word and 
+" potential completions. Default 0
+" let g:deoplete#sources#ternjs#case_insensitive = 1
+
+" When completing a property and no completions are found, Tern will use some 
+" heuristics to try and return some properties anyway. Set this to 0 to 
+" turn that off. Default: 1
+" let g:deoplete#sources#ternjs#guess = 0
+
+" Determines whether the result set will be sorted. Default: 1
+" let g:deoplete#sources#ternjs#sort = 0
+
+" When disabled, only the text before the given position is considered part of 
+" the word. When enabled (the default), the whole variable name that the cursor
+" is on will be included. Default: 1
+" let g:deoplete#sources#ternjs#expand_word_forward = 0
+
+" Whether to ignore the properties of Object.prototype unless they have been 
+" spelled out by at least two characters. Default: 1
+" let g:deoplete#sources#ternjs#omit_object_prototype = 0
+
+" Whether to include JavaScript keywords when completing something that is not 
+" a property. Default: 0
+" let g:deoplete#sources#ternjs#include_keywords = 1
+
+" If completions should be returned when inside a literal. Default: 1
+" let g:deoplete#sources#ternjs#in_literal = 0
+
+
+"Add extra filetypes
+let g:deoplete#sources#ternjs#filetypes = [
+                \ 'jsx',
+                \ 'javascript.jsx',
+                \ 'vue',
+                \ '...'
+                \ ]
+
 "vim-airline settings
-let g:airline_theme='simple' " <theme> is a valid theme name
+let g:airline_theme='dark' 
+" let g:airline_theme='base16' 
+" <theme> is a valid theme name
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:tmuxline_powerline_separators = 1
+
 
 "nerdCommenter settings
 " Add spaces after comment delimiters by default
@@ -110,15 +187,6 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
 " End TMUX section
-
-
-
-
-
-
-
-
-
 
 
 

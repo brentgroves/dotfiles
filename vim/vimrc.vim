@@ -29,7 +29,7 @@ function! LightLineFilename()
 " https://github.com/christoomey/vim-system-copy
 " https://www.circuidipity.com/neovim/
 " NeoVim Vundle install link https://gist.github.com/lujiacn/520e3e8abfd1c1b39c30399222766ee8
-
+" https://github.com/ncm2/ncm2
 
 
 " Mapping section
@@ -47,28 +47,6 @@ nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 " End TMUX section
 
 
-" dein plugins
-if &compatible
-  set nocompatible
-endif
-" Add the dein installation directory into runtimepath
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-
-if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
-
-  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
-  call dein#add('Shougo/deoplete.nvim')
-  call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-  call dein#add('idanarye/vim-vebugger')
-  if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
-
-  call dein#end()
-  call dein#save_state()
-endif
 
 
 " set the runtime path to include Vundle and initialize
@@ -104,6 +82,7 @@ call vundle#end()            " required
  "
 
 
+
 "Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
@@ -114,10 +93,20 @@ Plug 'chrisbra/NrrwRgn'
 Plug 'https://github.com/wesQ3/vim-windowswap'
 Plug 'w0rp/ale'
 Plug 'itchyny/lightline.vim'
-Plug 'roxma/nvim-completion-manager'
-Plug 'roxma/nvim-cm-tern', {'do': 'npm install'}
+" post install (yarn install | npm install)
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+" Filepath completion
+Plug 'ncm2/ncm2-path'
+
 call plug#end()
 " :PlugInstall    - installs plugins;
+
+" ncm2 settings
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+
 
 " General Vim settings
 let mapleader=","	    " Often used must initialize no default

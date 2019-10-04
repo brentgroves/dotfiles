@@ -39,6 +39,7 @@ export NVM_DIR="$HOME/.nvm"
 
 export NVIM_PYTHON_LOG_FILE=/tmp/log                                      
 export NVIM_PYTHON_LOG_LEVEL=DEBUG
-export PATH="$HOME/.pyenv/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
