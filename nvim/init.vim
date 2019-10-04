@@ -22,6 +22,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	Plug 'junegunn/fzf.vim'
 	Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+	Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 " vim commentary
@@ -94,6 +95,22 @@ nnoremap <silent> <leader>bv :vnew<CR>
 " map - x
 noremap <silent> pr :Prettier<CR>
 noremap <silent> // :call NERDComment("n", "Toggle")<CR>
+
+
+" Mapping section
+" http://learnvimscriptthehardway.stevelosh.com/chapters/10.html#learning-the-map
+inoremap jk <esc>
+" Start TMUX section
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
+
+" End TMUX section
+
 
 
 
