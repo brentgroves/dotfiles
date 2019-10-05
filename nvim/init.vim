@@ -1,8 +1,8 @@
-" https://sweetcode.io/configuring-eslint-nodejs-project/
-" git clone https://github.com/w0rp/ale.git ~/.local/share/nvim/site/pack/git-plugins/start/ale
+" sudo apt-get install gpm --To enable mouse support
+" https://unix.stackexchange.com/questions/444601/any-terminal-shell-with-mouse-support
 call plug#begin('~/.local/share/nvim/plugged')
-" http://vimdoc.sourceforge.net/htmldoc/version7.html#new-omni-completion
 	" https://github.com/dense-analysis/ale#installation-with-vim-plug
+	" https://sweetcode.io/configuring-eslint-nodejs-project/
 	Plug 'dense-analysis/ale'
 	if has('nvim')
 	  " https://github.com/Shougo/deoplete.nvim/wiki/Completion-Sources
@@ -12,8 +12,33 @@ call plug#begin('~/.local/share/nvim/plugged')
 	  Plug 'roxma/nvim-yarp'
 	  Plug 'roxma/vim-hug-neovim-rpc'
 	endif
+	Plug 'deoplete-plugins/deoplete-jedi'
 	" https://atom.io/packages/atom-ternjs example configuration file.
+	" https://www.gregjs.com/vim/2016/configuring-the-deoplete-asynchronous-keyword-completion-plugin-with-tern-for-vim/
 	Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+	" https://microsoft.github.io/language-server-protocol/implementors/servers/
+	" https://langserver.org/#arbitraryExecutionFootnote
+	" https://github.com/sourcegraph/javascript-typescript-langserver
+	" https://github.com/palantir/python-language-server
+	" Plug 'autozimu/LanguageClient-neovim', {
+	"    \ 'branch': 'next',
+	"    \ 'do': 'bash install.sh',
+	"    \ }
+	" https://github.com/SirVer/ultisnips
+	" Track the engine.
+	Plug 'SirVer/ultisnips'
+
+	" Snippets are separated from the engine. Add this if you want them:
+	" https://github.com/Shougo/deoplete.nvim/issues/724
+	" https://blog.prismatik.com.au/snippets-in-vim-43cf2ad79000
+	" https://brigade.engineering/sharpen-your-vim-with-snippets-767b693886db#.53n8qt3p6
+	Plug 'honza/vim-snippets'
+
+	" do more research on this article
+	" https://www.gregjs.com/vim/2016/neovim-deoplete-jspc-ultisnips-and-tern-a-config-for-kickass-autocompletion/
+	" Plug 'othree/jspc.vim'
+
+
 	" https://github.com/powerline/fonts
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
@@ -25,6 +50,31 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 	Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-s>" 
+let g:UltiSnipsJumpForwardTrigger="<c-j>" 
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" If you want :UltiSnipsEdit to split your window.
+" let g:UltiSnipsEditSplit="vertical"
+
+
+" LanguageClient settings
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+    \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 " Auto pairs settings
 let g:AutoPairsFlyMode = 0
@@ -48,8 +98,9 @@ let g:ale_linters = {
 let g:python3_host_prog = '/home/brent/.pyenv/shims/python'
 
 "Deoplete settings
+
 let g:deoplete#enable_at_startup = 1
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 let g:deoplete#enable_ignore_case = 1
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#enable_camel_case = 1
@@ -71,16 +122,16 @@ let g:deoplete#sources#ternjs#types = 1
 " Whether to include the distance (in scopes for variables, in prototypes for 
 " properties) between the completions and the origin position in the result 
 " data. Default: 0
-" let g:deoplete#sources#ternjs#depths = 1
+let g:deoplete#sources#ternjs#depths = 1
 
 " Whether to include documentation strings (if found) in the result data.
 " Default: 0
-" let g:deoplete#sources#ternjs#docs = 1
+let g:deoplete#sources#ternjs#docs = 1
 
 " When on, only completions that match the current word at the given point will
 " be returned. Turn this off to get all results, so that you can filter on the 
 " client side. Default: 1
-" let g:deoplete#sources#ternjs#filter = 0
+let g:deoplete#sources#ternjs#filter = 0
 
 " Whether to use a case-insensitive compare between the current word and 
 " potential completions. Default 0
