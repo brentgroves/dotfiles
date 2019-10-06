@@ -31,8 +31,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 	" Snippets are separated from the engine. Add this if you want them:
 	" https://github.com/Shougo/deoplete.nvim/issues/724
 	" https://blog.prismatik.com.au/snippets-in-vim-43cf2ad79000
-	" https://brigade.engineering/sharpen-your-vim-with-snippets-767b693886db#.53n8qt3p6
-	Plug 'honza/vim-snippets'
+	" https://brigade.engineering/sharpen-your-vim-with-snippets-767b693886db#.53n8qt3p6i
+	" Plug 'honza/vim-snippets'
 
 	" do more research on this article
 	" https://www.gregjs.com/vim/2016/neovim-deoplete-jspc-ultisnips-and-tern-a-config-for-kickass-autocompletion/
@@ -52,9 +52,12 @@ call plug#begin('~/.local/share/nvim/plugged')
 call plug#end()
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-s>" 
-let g:UltiSnipsJumpForwardTrigger="<c-j>" 
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+  let g:UltiSnipsExpandTrigger = "<tab>"
+  let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+  let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+  let g:UltiSnipsSnippetsDir = $HOME."/.config/UltiSnips"
+  let g:UltiSnipsSnippetDirectories = ['UltiSnips', $HOME.'/.config/UltiSnips']
+  let g:UltiSnipsEnableSnipMate = 0
 " If you want :UltiSnipsEdit to split your window.
 " let g:UltiSnipsEditSplit="vertical"
 
@@ -84,8 +87,6 @@ let g:AutoPairsShortcutBackInsert = '<M-b>'
 autocmd FileType apache setlocal commentstring=#\ %s
 
 
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
 
 " ALE settings
 let g:ale_linters = {
@@ -100,7 +101,7 @@ let g:python3_host_prog = '/home/brent/.pyenv/shims/python'
 "Deoplete settings
 
 let g:deoplete#enable_at_startup = 1
-" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 let g:deoplete#enable_ignore_case = 1
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#enable_camel_case = 1
@@ -241,5 +242,9 @@ nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
 
 
+" My Buffer settings
+set switchbuf=usetab
+nnoremap <F8> :sbnext<CR>
+nnoremap <S-F8> :sbprevious<CR>
 
 
