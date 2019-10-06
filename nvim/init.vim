@@ -20,10 +20,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 	" https://langserver.org/#arbitraryExecutionFootnote
 	" https://github.com/sourcegraph/javascript-typescript-langserver
 	" https://github.com/palantir/python-language-server
-	" Plug 'autozimu/LanguageClient-neovim', {
-	"    \ 'branch': 'next',
-	"    \ 'do': 'bash install.sh',
-	"    \ }
+	Plug 'autozimu/LanguageClient-neovim', {
+	    \ 'branch': 'next',
+	    \ 'do': 'bash install.sh',
+	    \ }
 	" https://github.com/SirVer/ultisnips
 	" Track the engine.
 	Plug 'SirVer/ultisnips'
@@ -67,16 +67,13 @@ call plug#end()
 set hidden
 
 let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-    \ 'python': ['/usr/local/bin/pyls'],
-    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+    \ 'javascript': ['tcp://127.0.0.1:2089'],
     \ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F3> :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> <F4> :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 " Auto pairs settings
