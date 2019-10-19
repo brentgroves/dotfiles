@@ -59,13 +59,17 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'christoomey/vim-tmux-navigator'
 	" https://github.com/zhaocai/GoldenView.Vim
 	Plug 'zhaocai/GoldenView.Vim'
-" https://github.com/thaerkh/vim-workspace
-	Plug 'thaerkh/vim-workspace'
+" https://github.com/thaerkh/vim-workspace 
+"	Plug 'thaerkh/vim-workspace'
 call plug#end()
+" https://www.internalpointers.com/post/humble-vim-cheat-sheet
 
-" vim workspace
+" Jump to matching ([{}])
+" % - https://vim.fandom.com/wiki/Moving_to_matching_braces
+" v% - for visual mode
+" vim workspace - Don't use if your going to use TMUX
 " let g:workspace_create_new_tabs = 0  " enabled = 1 (default), disabled = 0
-nnoremap T :ToggleWorkspace<CR>
+" nnoremap T :ToggleWorkspace<CR>
 " noremap <silent> pr :Prettier<CR>
 " nnoremap <F3> :ToggleWorkspace<CR>
 " let g:workspace_session_name = 'Session.vim'
