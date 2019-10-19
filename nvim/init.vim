@@ -1,5 +1,13 @@
 " sudo apt-get install gpm --To enable mouse support
 " https://unix.stackexchange.com/questions/444601/any-terminal-shell-with-mouse-support
+
+" :source ~/.vimrc
+" :source ~/.config/nvim
+" :PlugStatus
+" :PlugInstall
+" :PlugUpdate
+" :PlugClean
+" :PlugUpgrade
 call plug#begin('~/.local/share/nvim/plugged')
 	" https://github.com/dense-analysis/ale#installation-with-vim-plug
 	" https://sweetcode.io/configuring-eslint-nodejs-project/
@@ -49,7 +57,60 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'junegunn/fzf.vim'
 	Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 	Plug 'christoomey/vim-tmux-navigator'
+	" https://github.com/zhaocai/GoldenView.Vim
+	Plug 'zhaocai/GoldenView.Vim'
+" https://github.com/thaerkh/vim-workspace
+	Plug 'thaerkh/vim-workspace'
 call plug#end()
+
+" vim workspace
+" let g:workspace_create_new_tabs = 0  " enabled = 1 (default), disabled = 0
+nnoremap T :ToggleWorkspace<CR>
+" noremap <silent> pr :Prettier<CR>
+" nnoremap <F3> :ToggleWorkspace<CR>
+" let g:workspace_session_name = 'Session.vim'
+" let g:workspace_session_directory = $HOME . '/.vim/sessions/'
+" let g:workspace_session_disable_on_args = 1
+" let g:workspace_persist_undo_history = 1  " enabled = 1 (default), disabled = 0
+" let g:workspace_undodir='.undodir'
+" let g:workspace_autosave_always = 1
+" let g:workspace_autosave = 0
+
+
+" https://neovim.io/doc/user/nvim_terminal_emulator.html
+" http://vimcasts.org/episodes/neovim-terminal-mappings/
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <M-[> <Esc>
+  tnoremap <C-v><Esc> <Esc>
+endif
+
+" :e filename      - edit another file
+" :split filename  - split window and load another file
+" ctrl-w up arrow  - move cursor up a window
+" ctrl-w ctrl-w    - move cursor to another window (cycle)
+" ctrl-w_          - maximize current window
+" ctrl-w=          - make all equal size
+" 10 ctrl-w+       - increase window size by 10 lines
+" :vsplit file     - vertical split
+" :sview file      - same as split, but readonly
+" :hide            - close current window
+" :only            - keep only this window open
+" :ls              - show current buffers
+" :b 2             - open buffer #2 in this window
+
+" GoldenView
+" 1. split to tiled windows
+" nmap <silent> <C-L>  <Plug>GoldenViewSplit
+
+" 2. quickly switch current window with the main pane
+" and toggle back
+" nmap <silent> <F8>   <Plug>GoldenViewSwitchMain
+" nmap <silent> <S-F8> <Plug>GoldenViewSwitchToggle
+
+" 3. jump to next and previous window
+" nmap <silent> <C-N>  <Plug>GoldenViewNext
+" nmap <silent> <C-P>  <Plug>GoldenViewPrevious
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
   let g:UltiSnipsExpandTrigger = "<tab>"
