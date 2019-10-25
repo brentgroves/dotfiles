@@ -22,10 +22,11 @@ antigen bundles <<EOBUNDLES
 
 EOBUNDLES
 
-# Load the theme
+# Load this theme and type antigen reset
 #antigen theme robbyrussell
 
 antigen theme agnoster
+
 
 # Tell antigen that you're done
 antigen apply
