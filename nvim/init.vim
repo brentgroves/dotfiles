@@ -1,6 +1,8 @@
 " sudo apt-get install gpm --To enable mouse support
 " https://unix.stackexchange.com/questions/444601/any-terminal-shell-with-mouse-support
-
+"  When installing add so /home/brent/dotfiles/nvim/init.vim to ~/.config/nvim/init.vim
+"Install vim plug plugin manager
+" curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 " :source ~/.vimrc
 " :source ~/.config/nvim
 " :PlugStatus
