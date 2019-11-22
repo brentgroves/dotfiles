@@ -308,7 +308,7 @@ nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
 " My Buffer settings
 set switchbuf=usetab
-nnoremap <F8> :sbnext<CR>
-nnoremap <S-F8> :sbprevious<CR>
+nnoremap <C-N> :bnext<CR>
+nnoremap <C-P> :bprev<CR>
 
 
