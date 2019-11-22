@@ -306,9 +306,13 @@ nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
 
 
-" My Buffer settings
+" Default Buffer settings
 set switchbuf=usetab
-nnoremap <C-N> :bnext<CR>
-nnoremap <C-P> :bprev<CR>
+" :bn - Switch to next buffer
+" :bp - Switch to previous buffer
+" :bd - Close current buffer
+" :bl
+" :2bd  // delete buffer 2
+
 
 
