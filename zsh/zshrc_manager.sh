@@ -1,4 +1,4 @@
-time_out () { perl -e 'alarm shift; exec @ARGV' "$@"; }
+# time_out () { perl -e 'alarm shift; exec @ARGV' "$@"; }
 
 #[[ -o interactive ]] && echo "This ZSH Shell is a Interactive Shell" || echo "This ZSH Shell is Not a Interactive Shell"
 
