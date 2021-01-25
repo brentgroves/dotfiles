@@ -28,8 +28,8 @@ fi
 
 
 export NVM_DIR="$HOME/.nvm"
-export NVIM_PYTHON_LOG_FILE=/tmp/log                                      
-export NVIM_PYTHON_LOG_LEVEL=DEBUG
+# export NVIM_PYTHON_LOG_FILE=/tmp/log                                      
+# export NVIM_PYTHON_LOG_LEVEL=DEBUG
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -39,4 +39,5 @@ export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew";
 export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}";
 export MANPATH="/home/linuxbrew/.linuxbrew/share/man${MANPATH+:$MANPATH}:";
 export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}";
-
+export TMPDIR="/tmp" 
+# export TMPDIR="~/tmp" 

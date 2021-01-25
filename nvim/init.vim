@@ -13,6 +13,10 @@
 call plug#begin('~/.local/share/nvim/plugged')
 	" Coc Language Server support
 	" :CocInstall coc-tsserver
+  " :CocUninstall coc-tsserver
+  " CocInstall coc-python
+  " CocList extensions
+  " CocUninstall coc-python
 	" https://github.com/neoclide/coc-tsserver
 	" https://github.com/neoclide/coc.nvim
 	" Use release branch (recommend)
@@ -42,7 +46,7 @@ set hidden
 " Neovim's Python provider
 "----------------------------------------------------------
 
-let g:python3_host_prog = '/home/pi/.pyenv/shims/python'
+let g:python3_host_prog = '/home/brent/.pyenv/shims/python'
 
 " TextEdit might fail if hidden is not set.
 set hidden
