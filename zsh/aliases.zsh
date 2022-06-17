@@ -1,5 +1,5 @@
 alias cls='clr' # Clear the console
-
+alias kubectl='microk8s kubectl'
 # I like verbose in chmod & chown
 alias chmod='chmod -v'
 alias chown='chown -v'

@@ -21,15 +21,15 @@ source ~/dotfiles/zsh/exports.zsh
 # then antigen reset.
 # Debian antigen file
 #source /usr/share/zsh-antigen/antigen.zsh
-source ~/dotfiles/zsh/antigen.zsh # this depends on where you saved the file
-# source ~/antigen/antigen.zsh
+#source ~/dotfiles/zsh/antigen.zsh # this depends on where you saved the file
+source ~/antigen/antigen.zsh
 antigen init ~/dotfiles/zsh/.antigenrc
 
-
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Using anaconda now
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 neofetch
