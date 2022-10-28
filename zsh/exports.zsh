@@ -48,5 +48,8 @@ export LD_LIBRARY_PATH=/usr/oaodbc81/lib64${LD_LIBRARY_PATH:+":"}${LD_LIBRARY_PA
 export OASDK_ODBC_HOME=/usr/oaodbc81/lib64; 
 export ODBCINI=/usr/oaodbc81/odbc64.ini; 
 
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+
+
 
 # export TMPDIR="~/tmp" 
