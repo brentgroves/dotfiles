@@ -51,9 +51,7 @@ export ODBCINI=/usr/oaodbc81/odbc64.ini;
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 # https://howtodoinjava.com/java/basics/java-classpath/
 export CLASSPATH=/usr/lib/jvm/ext/*.jar
-
+# for crontab editor
+export VISUAL="nvim"
 # export CLASSPATH=/usr/lib/jvm/ext:/dependency/*:/location
-
-
-
 # export TMPDIR="~/tmp" 
