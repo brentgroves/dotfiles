@@ -20,8 +20,8 @@ source ~/dotfiles/zsh/exports.zsh
 # and reinstall antigen: sudo apt-get install zsh-antigen
 # then antigen reset.
 # Debian antigen file
-source /usr/share/zsh-antigen/antigen.zsh
-# source ~/dotfiles/zsh/antigen.zsh # this depends on where you saved the file
+# source /usr/share/zsh-antigen/antigen.zsh
+source ~/dotfiles/zsh/antigen.zsh # this depends on where you saved the file
 # source ~/antigen/antigen.zsh
 antigen init ~/dotfiles/zsh/.antigenrc
 
