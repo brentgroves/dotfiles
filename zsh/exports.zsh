@@ -42,6 +42,8 @@ export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew";
 export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}";
 # export PATH="$PATH:/opt/mssql-tools/bin"
 export PATH="$PATH:/opt/mssql-tools18/bin"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 export MANPATH="/home/linuxbrew/.linuxbrew/share/man${MANPATH+:$MANPATH}:";
 export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}";
 export TMPDIR="/tmp" 
