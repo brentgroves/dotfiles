@@ -43,6 +43,9 @@ export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PAT
 # export PATH="$PATH:/opt/mssql-tools/bin"
 export PATH="$PATH:/opt/mssql-tools18/bin"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+# export KUBECONFIG="/home/brent/.kube/config:config-demo:config-demo-2"
+export KUBECONFIG="$HOME/.kube/config"
+
 
 export MANPATH="/home/linuxbrew/.linuxbrew/share/man${MANPATH+:$MANPATH}:";
 export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}";
