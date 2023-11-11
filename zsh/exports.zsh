@@ -28,3 +28,4 @@ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 # https://howtodoinjava.com/java/basics/java-classpath/
 export CLASSPATH=/usr/lib/jvm/ext/*.jar
 export VISUAL="nvim"
+export KUBE_EDITOR="nvim"
