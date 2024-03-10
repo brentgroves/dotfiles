@@ -7,9 +7,8 @@ fi
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="/home/bgroves@BUSCHE-CNC.COM/anaconda3/bin:$PATH"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$HOME/bin:/usr/local/go/bin:$PATH
-# export PATH=$HOME/.local/bin:$HOME/sdk/go1.22.0/bin/:$HOME/go/bin/:$PATH
-# export PATH=$HOME/.local/bin:$HOME/sdk/go1.22.0/bin/:$HOME/go/bin/:$PATH
+# export PATH=$HOME/bin:/usr/local/go/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/sdk/go1.22.0/bin/:$PATH
 export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}";
 export PATH="$PATH:/opt/mssql-tools18/bin"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
