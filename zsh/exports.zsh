@@ -4,6 +4,7 @@ else
   export EDITOR='vim'
 fi
 
+export PATH="$HOME/fpc-3.2.0/bin:$PATH"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="/home/bgroves@BUSCHE-CNC.COM/anaconda3/bin:$PATH"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
