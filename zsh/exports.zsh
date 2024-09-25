@@ -7,7 +7,6 @@ fi
 # you don’t have to use $GOPATH/src for your projects since Go 1.11. 
 # However, pkg and bin folders are still used.
 export PATH="$PATH:$HOME/go/bin"
-export PATH="$PATH:/usr/local/bin/istio-1.23.0/bin"
 export PATH="$PATH:$HOME/bin/sqlpackage"
 export PATH="$HOME/bin/shell_scripts:$PATH"
 export PATH="$HOME/fpc-3.2.0/bin:$PATH"
