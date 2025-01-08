@@ -12,7 +12,7 @@ export PATH="/home/brent/miniconda3/bin/conda:$PATH"
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 # go1.23.4 is at /usr/local/go/bin
 # export PATH="/usr/local/go/bin:$HOME/go/bin/:$PATH"
-export PATH="$HOME/sdk/go1.22.0:$HOME/go/bin/:$PATH"
+export PATH="$HOME/sdk/go1.22.0/bin:$HOME/go/bin/:$PATH"
 
 # export PATH=$HOME/.local/bin:$HOME/sdk/go1.22.0/bin/:$PATH
 export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}";
