@@ -6,6 +6,7 @@ fi
 export PATH="$PATH:$HOME/bin/sqlpackage"
 export PATH="$HOME/bin/shell_scripts:$PATH"
 export PATH="$HOME/fpc-3.2.0/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="/home/brent/miniconda3/bin/conda:$PATH"
 # export PATH="/home/bgroves@BUSCHE-CNC.COM/anaconda3/bin:$PATH"
