@@ -48,7 +48,7 @@ alias pacman='sudo pacman --color auto'
 alias update='sudo pacman -Syyu'
 
 #ps
-alias ps="ps auxf"
+# alias ps="ps auxf"
 alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
 
 # yaourt keeps tmp folder cleaner than packer
