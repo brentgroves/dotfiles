@@ -3,6 +3,12 @@ if [[ -a /usr/bin/nvim ]]; then
 else
   export EDITOR='vim'
 fi
+# Set up Emscripten environment variables
+export EMSDK=/home/brent/src/emsdk
+export EMSDK_NODE=/home/brent/src/emsdk/node/22.16.0_64bit/bin/node
+export PATH="$HOME/src/emsdk:$PATH"
+export PATH="$HOME/src/emsdk/upstream/emscripten:$PATH"
+
 export PATH="$PATH:$HOME/bin/sqlpackage"
 export PATH="$HOME/bin/shell_scripts:$PATH"
 export PATH="$HOME/fpc-3.2.0/bin:$PATH"
