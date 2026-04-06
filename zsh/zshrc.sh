@@ -24,5 +24,5 @@ source ~/dotfiles/zsh/exports.zsh
 source ~/dotfiles/zsh/antigen.zsh # this depends on where you saved the file
 antigen init ~/dotfiles/zsh/.antigenrc
 
-neofetch
+neowofetch
 
