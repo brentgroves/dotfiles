@@ -2,7 +2,7 @@ alias pki='cd ~/src/initiatives/pki/pki'
 alias dotfiles='cd ~/dotfiles'
 alias scripts='cd ~/src/initiatives/research/software_development/shell_scripts'
 alias initiatives='cd ~/src/initiatives'
-
+alias dashboards='cd ~/src/initiatives/dashboards'
 
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
