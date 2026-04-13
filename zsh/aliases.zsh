@@ -1,6 +1,10 @@
-alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
+alias pki='cd ~/src/initiatives/pki/pki'
+alias dotfiles='cd ~/.dotfiles'
+alias scripts='cd ~/src/initiatives/research/software_development/shell_scripts'
 
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
+alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
+
 alias cls='clr' # Clear the console
 alias kc='microk8s kubectl'
 # I like verbose in chmod & chown
