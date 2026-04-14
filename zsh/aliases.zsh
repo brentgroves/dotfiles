@@ -1,10 +1,11 @@
-alias pki='cd ~/src/initiatives/pki/pki'
-alias dotfiles='cd ~/dotfiles'
-alias scripts='cd ~/src/initiatives/research/software_development/shell_scripts'
-alias initiatives='cd ~/src/initiatives'
-alias dashboards='cd ~/src/initiatives/dashboards'
+alias pki='code ~/src/initiatives/pki/pki/README.md'
+alias scripts='code ~/src/initiatives/research/software_development/shell_scripts/startday.sh'
+alias initiatives='code ~/src/initiatives/README.md'
 alias dash_pki='code ~/src/initiatives/dashboards/in_30_30_10.md'
-alias status='cd ~/src/initiatives/status/2026'
+alias dash_jtfronts='code ~/src/initiatives/dashboards/in_40_50_10.md'
+alias status='code ~/src/initiatives/status/2026/w_16.md'
+alias aliases='code ~/dotfiles/zsh/aliases.zsh'
+alias cert='code ~/src/initiatives/pki/pki/mach2_work_area/gen_niagara_cert.md'
 
 
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
