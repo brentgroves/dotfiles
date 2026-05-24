@@ -8,6 +8,7 @@ export EMSDK=/home/brent/src/emsdk
 export EMSDK_NODE=/home/brent/src/emsdk/node/22.16.0_64bit/bin/node
 export PATH="$HOME/src/emsdk:$PATH"
 export PATH="$HOME/src/emsdk/upstream/emscripten:$PATH"
+export PATH="/usr/local/texlive/2026/bin/x86_64-linux:$PATH"
 
 export PATH="$PATH:$HOME/bin/sqlpackage"
 export PATH="$HOME/bin/shell_scripts:$PATH"
